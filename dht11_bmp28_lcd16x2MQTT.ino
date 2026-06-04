@@ -1,3 +1,5 @@
+# WSN - 2
+
 #include <Wire.h>
 #include <WiFi.h>
 #include <MQTT.h>
@@ -12,8 +14,8 @@
 WiFiClient net;
 MQTTClient client;
 
-String ssid="ProjectWifi";
-String pass="237a27d13B";
+String ssid="SSID";
+String pass="PASSWORD";
 unsigned long lastMillis = 0;
 
 LiquidCrystal_I2C lcd(0x27, 16, 2);  // I2C address 0x24, 16 column and 2 rows
@@ -45,7 +47,7 @@ void setup() {
   lcd.init();         // initialize the lcd
   lcd.backlight();    // open the backlight
   WiFi.begin(ssid, pass);
-  client.begin("192.168.1.102",net);
+  client.begin("IP Address of the MQTT Server",net);
   client.onMessage(messageReceived);
   connect();
   delay(10);
