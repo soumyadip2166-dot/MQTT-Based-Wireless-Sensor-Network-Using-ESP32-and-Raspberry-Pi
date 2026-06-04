@@ -15,8 +15,8 @@
 WiFiClient net;
 MQTTClient client;
 
-String ssid="ProjectWifi";
-String pass="237a27d13B";
+String ssid="SSID";
+String pass="PASSWORD";
 unsigned long lastMillis = 0;
  
 #define SCREEN_WIDTH 128    // OLED display width, in pixels
@@ -52,7 +52,7 @@ void setup()
   display.begin(SSD1306_SWITCHCAPVCC, 0x3C); //initialize with the I2C addr 0x3C (128x64)
   display.clearDisplay();
   WiFi.begin(ssid, pass);
-  client.begin("192.168.1.102", net);
+  client.begin("IP Address of the MQTT Server", net);
   connect();
   delay(10);
 } 
